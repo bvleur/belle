@@ -294,7 +294,7 @@ export default class ComboBox extends Component {
     }
 
     if (newState.inputValue) {
-      newState.filteredOptions = ComboBox.filterOptions(newState.inputValue, properties);
+      this.filteredOptions = ComboBox.filterOptions(newState.inputValue, properties);
     }
 
     this.setState(newState);
@@ -697,6 +697,7 @@ export default class ComboBox extends Component {
 
     const computedMenuStyle = (this.state.isOpen && !this.props.disabled && this.filteredOptions && this.filteredOptions.length > 0) ? menuStyle : { display: 'none' };
 
+    console.log('render', this.filteredOptions);
     // using value for input makes it a controlled component and it will be changed in controlled manner if (1) user enters value, (2) user selects some option
     // value will be updated depending on whether user has passed value / valueLink / defaultValue as property
     return (
